@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Bem-vindo</h2>
+  {% if user.is_authenticated %}
+    <p>Olá, {{ user.email }}!</p>
+  {% else %}
+    <p>Você precisa estar logado para acessar essa página.</p>
+  {% endif %}
+{% endblock %}
+

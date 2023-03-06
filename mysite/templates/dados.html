@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Dados</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Coluna 1</th>
+      <th>Coluna 2</th>
+      <th>Coluna 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dado in dados %}
+      <tr>
+        <td>{{ dado.coluna1 }}</td>
+        <td>{{ dado.coluna2 }}</td>
+        <td>{{ dado.coluna3 }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

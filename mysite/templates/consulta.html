@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Consulta</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="parametro1">Parâmetro 1:</label>
+    <input type="text" name="parametro1" id="parametro1"><br><br>
+    <label for="parametro2">Parâmetro 2:</label>
+    <input type="text" name="parametro2" id="parametro2"><br><br>
+    <input type="submit" value="Consultar">
+  </form>
+  
+  {% if resultado %}
+    <p>{{ resultado }}</p>
+  {% endif %}
+{% endblock %}
+
