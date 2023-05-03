@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'mysite/base.html' %}
 
 {% block content %}
-  <h2>Login</h2>
+  <h2>Cadastro</h2>
   {% if messages %}
     <ul class="messages">
       {% for message in messages %}
@@ -11,11 +11,13 @@
   {% endif %}
   <form method="post">
     {% csrf_token %}
-    <label for="username">Usuário:</label>
+    <label for="username">Email:</label>
     <input type="text" name="username" id="username"><br><br>
     <label for="password">Senha:</label>
     <input type="password" name="password" id="password"><br><br>
-    <input type="submit" value="Entrar">
+    <label for="nome">Nome Completo:</label>
+    <input type="text" name="nome" id="nome"><br><br>
+    <input type="submit" value="Cadastrar">
   </form>
 {% endblock %}
 

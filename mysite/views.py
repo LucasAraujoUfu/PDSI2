@@ -1,28 +1,35 @@
+from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+#from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth import login, authenticate
 
 import pandas as pd
 
+
+def home(request):
+    return render(request,'mysite/home.html')
+
+
 def cadastro(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-			form.save()
-			email = form.cleaned_data.get('email')
-			raw_password = form.cleaned_data.get('password1')
-			user = authenticate(email=email, password=raw_password)
-			login(request, user)
-			return redirect('nome_da_pagina_inicial')
-		else:
-			form = UserCreationForm()
-			return render(request, 'cadastro.html', {'form': form})
+    # if request.method == 'POST':
+    #     form = UserCreationForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         email = form.cleaned_data.get('email')
+    #         raw_password = form.cleaned_data.get('password1')
+    #         user = authenticate(email=email, password=raw_password)
+    #         login(request, user)
+    #         return redirect('')
+    #     else:
+    #         form = UserCreationForm()
+    #         return render(request, 'mysite/cadastro.html', {'form': form})
+    return render(request, 'mysite/cadastro.html')
 
 
 def dados(request):
     df = pd.read_csv('datasets/nome_do_dataset.csv')
     dados = df.to_dict('records')
-    return render(request, 'dados.html', {'dados': dados})
+    return render(request, 'mysite/dados.html', {'dados': dados})
 
 
 def login(request):
@@ -35,7 +42,7 @@ def login(request):
             return redirect('dados')
         else:
             messages.error(request, 'Usuário ou senha inválidos')
-    return render(request, 'login.html')
+    return render(request, 'mysite/login.html')
     
 
 def consulta(request):
@@ -57,8 +64,7 @@ def consulta(request):
         context = {
             'resultado': resultado
         }
-        return render(request, 'consulta.html', context)
+        return render(request, 'mysite/consulta.html', context)
     else:
-        return render(request, 'consulta.html')
-
+        return render(request, 'mysite/consulta.html')
 

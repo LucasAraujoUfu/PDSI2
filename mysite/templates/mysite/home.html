@@ -1,0 +1,12 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+<div class="row d-flex justify-content-center">
+  <h2>Bem-vindo</h2>
+  {% if user.is_authenticated %}
+  <p>Olá, {{ user.email }}!</p>
+  {% else %}
+  <p>Você precisa estar logado para acessar essa página.</p>
+  {% endif %}
+</div>
+{% endblock %}
