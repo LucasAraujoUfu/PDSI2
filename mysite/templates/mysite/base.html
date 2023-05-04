@@ -39,6 +39,11 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">Dashboards</a>
 					</li>
+					{% if user.is_authenticated %}
+					<li class="nav-item btn btn-primary">
+						<a class="nav-link" href="../logout">logout</a>
+					</li>
+					{% endif %}
 				</ul>
 			</div>
 		</nav>
