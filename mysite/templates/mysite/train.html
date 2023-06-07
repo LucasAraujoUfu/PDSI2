@@ -1,0 +1,14 @@
+{% extends 'mysite/base.html' %}
+{% block content %}
+
+{% if data %}
+<p>Existem dados de treinamento no banco clique <a href="../train_db" class="btn btn-primary">AQUI</a> para usa-los<br>ou</p>
+{% endif %}
+
+<form action="../dados/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="arq">Arquivo de treinamento:</label>
+    <input type="file" name="arq" id="arq">
+    <input type="submit" value="Enviar">
+</form>
+{% endblock %}

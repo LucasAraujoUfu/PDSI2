@@ -1,14 +1,8 @@
 {% extends 'mysite/base.html' %}
 
 {% block content %}
-<h2>Dados <a href="../status" class="btn btn-primary">OK</a> </h2>
-{% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+<h2>Dados</h2>
+
 <table>
   <thead>
     <tr>
@@ -20,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for linha in dados %}
+    {% for linha in linhas %}
       <tr>
         {% for dado in linha  %}
           <td>{{ dado }}</td>

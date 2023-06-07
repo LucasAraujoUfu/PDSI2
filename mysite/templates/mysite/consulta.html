@@ -2,17 +2,28 @@
 
 {% block content %}
   <h2>Consulta</h2>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <label for="parametro1">Parâmetro 1:</label>
-    <input type="text" name="parametro1" id="parametro1"><br><br>
-    <label for="parametro2">Parâmetro 2:</label>
-    <input type="text" name="parametro2" id="parametro2"><br><br>
+
+    {% if cols %}
+      <label for="arq">Arquivo de teste:</label>
+      <input type="file" name="arq" id="arq">
+      <p>ou</p>
+      {% for col in cols %}
+      <label for="{{col}}">{{col}}</label>
+      <input name="{{col}}" id="{{col}}"><br>
+      {% endfor %}
+    {% endif %}
+
+    {% if resultado %}
+      <p>{{ resultado }}</p>
+    {% elif resultados %}
+      {% for resultado in resultados %}
+        <p>{{ resultado }}</p>
+      {% endfor %}
+    {% else %}
     <input type="submit" value="Consultar">
-  </form>
-  
-  {% if resultado %}
-    <p>{{ resultado }}</p>
-  {% endif %}
+    {% endif %}
+    </form>
 {% endblock %}
 

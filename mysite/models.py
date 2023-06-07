@@ -54,3 +54,16 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class dataset(models.Model):
+    SEXO = models.IntegerField()
+    DT_NASCIMENTO = models.IntegerField()
+    NOME_CIDADE = models.IntegerField()
+    ESTADO_CIVIL = models.IntegerField()
+    FORMA_INGRESSO = models.IntegerField()
+    MODALIDADE_INGRESSO = models.IntegerField()
+    ANO_INGRESSO = models.IntegerField()
+    CRA_PERIODO_INGRESSO = models.FloatField()
+    CRA_GERAL = models.FloatField()
+    FORMA_EVASAO = models.BooleanField()
