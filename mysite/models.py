@@ -57,6 +57,7 @@ class User(AbstractBaseUser):
 
 
 class dataset(models.Model):
+    objects = None
     SEXO = models.IntegerField()
     DT_NASCIMENTO = models.IntegerField()
     NOME_CIDADE = models.IntegerField()

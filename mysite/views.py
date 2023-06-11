@@ -127,7 +127,7 @@ def visual(request):
     dados = []
     for i in objects.values():
         dados.append(i.values())
-    dado = dataset()  # Cria uma instância vazia do modelo para acessar o atributo _meta
+    dado = dataset()
     columns = [field.name for field in dado._meta.fields]
     return render(request, 'mysite/visual.html', {"cols": columns,"linhas": dados})
 
